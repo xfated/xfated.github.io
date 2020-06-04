@@ -1,9 +1,8 @@
-const { Webcam } = requires('webcam-easy');
+const { Webcam } = require('webcam-easy');
 
 const webcamElement = document.getElementById('webcam');
 const canvasElement = document.getElementById('canvas');
-const snapSoundElement = document.getElementById('snapSound');
-const webcam = new Webcam(webcamElement, 'environment', canvasElement, snapSoundElement);
+const webcam = new Webcam(webcamElement, 'environment', canvasElement);
 
 /* Variables */
 let model;
@@ -53,6 +52,8 @@ async function start(){
     console.log(class_names[prediction_index[0]]);*/
 
 }
+
+start();
 
 /**
  * @description preprocess the image to size (224, 224) for our model
@@ -111,4 +112,3 @@ async function loadDict(){
     })
 }
 
-start();
