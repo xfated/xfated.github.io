@@ -55,7 +55,7 @@ function preprocess(imgData){
  */
 function findMaxIndices(prediction_array, count){
     let output = [];
-    for (let i = 0; i < prediction_array; i ++){
+    for (let i = 0; i < prediction_array.length ; i ++){
         output.push(i); // add index to output array
         if (output.length > count){
             output.sort(function(a, b){
