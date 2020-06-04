@@ -115,7 +115,7 @@ async function loadDict(){
 function readURL(input){
     if (input.files && input.files[0]){
         reader.onload = function(e){
-            $('#blah').attr('src', e.target.result);
+            $('#captured-image').attr('src', e.target.result);
             //document.getElementById("captured-image").src = e.target.result;
         };
 
