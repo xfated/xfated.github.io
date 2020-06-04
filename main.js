@@ -6,6 +6,7 @@ let model;
 let class_names = [];
 
 $("#image-input").change(function(){
+    console.log('detected change');
     readURL(this);
 });
 
