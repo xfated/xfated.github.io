@@ -1,8 +1,1 @@
-benchpress
-cyclemachine
-dumbbells
-latpulldown
-rowingmachine
-shoulderpress
-smith
-treadmill
+{0: 'benchpress', 1: 'cyclemachine', 2: 'dumbbells', 3: 'latpulldown', 4: 'rowingmachine', 5: 'shoulderpress', 6: 'smith', 7: 'treadmill'}
