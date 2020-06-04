@@ -5,11 +5,11 @@ const reader = new FileReader();
 let model;
 let class_names = [];
 
-$("#image-input").change(()=>{
+$("#image-input").change(function(){
     readURL(this);
 });
 
-$("#captured-image").change(()=>{
+$("#captured-image").change(function(){
     predictions();
 })
 
