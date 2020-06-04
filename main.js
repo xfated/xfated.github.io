@@ -39,7 +39,8 @@ async function start(){
         });
     
 
-
+    document.getElementById('console').innerText = 'hi';
+    /*
     while (true) {
         document.getElementById('console').innerText = 'hi';
         const image = await webcam.capture();
@@ -48,10 +49,7 @@ async function start(){
         console.log('predicted:');
         let prediction_index = findMaxIndices(pred, 1);
         let equipment = class_names[prediction_index[0]];
-        /*document.getElementById('console').innerText = `
-            prediction: ${equiment}\n
-            probability: ${pred[prediction_index]}`; 
-        */
+        
         image.dispose();
 
         await tf.nextFrame();
@@ -61,7 +59,7 @@ async function start(){
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted:');
     let prediction_index = findMaxIndices(pred, 1);
-    console.log(class_names[prediction_index[0]]);
+    console.log(class_names[prediction_index[0]]);*/
 
 }
 
