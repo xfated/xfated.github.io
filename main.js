@@ -27,7 +27,7 @@ async function start(){
         let prediction_index = findMaxIndices(pred, 1);
         let equipment = class_names[prediction_index[0]];
         document.getElementById('console').innerText = `
-            prediction: ${equi[ment]}\n
+            prediction: ${equiment}\n
             probability: ${pred[prediction_index]}`; 
         
         image.dispose();
