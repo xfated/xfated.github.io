@@ -1,7 +1,7 @@
 /* Variables */
 let model;
 let class_names = [];
-const webcamElement = document.getElementById('webmcam');
+const webcamElement = document.getElementById('webcam');
 
 /**
  * @description load the model
