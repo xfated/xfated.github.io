@@ -13,6 +13,7 @@ async function start(){
     console.log('Successfully loaded model');
 
     //test model
+    console.log('Image shape is:');
     const image = document.getElementById('img');
     console.log(image.shape);
     const pred = model.predict(image);
