@@ -13,9 +13,10 @@ async function start(){
     console.log('Successfully loaded model');
 
     //test model
-    console.log('Image shape is:');
+    console.log('Trying with preprocessing:');
     const image = document.getElementById('img');
     const pred = model.predict(preprocess(image));
+    console.log('predicted:');
     console.log(pred);
 
 }
@@ -28,7 +29,7 @@ start()
 function preprocess(imgData){
     return tf.tidy(() => {
         //convert to a tensor
-        let tensor = tf.browser.fromPixels(imgData, numChannels = 1);
+        let tensor = tf.browser.fromPixels(imgData, numChannels = 3);
 
         //resize
         const resized = tf.image.resizeBilinear(tensor, [224,224]).toFloat();
