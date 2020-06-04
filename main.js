@@ -1,4 +1,5 @@
 const input = document.querySelector("#image-input");
+const reader = new FileReader();
 
 /* Variables */
 let model;
@@ -17,11 +18,10 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    while(true){
-        $("#image-input").change(()=>{
-            readURL(this);
-        });
-    }
+    $("#image-input").change(()=>{
+        readURL(this);
+    });
+    
     /*
     while (true) {
         document.getElementById('console').innerText = 'hi';
@@ -109,8 +109,6 @@ async function loadDict(){
  */
 function readURL(input){
     if (input.files && input.files[0]){
-        var reader = new FileReader();
-        
         reader.onload = function(e){
             document.getElementById("captured-image").src = e.target.result;
         };
