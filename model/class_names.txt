@@ -1,0 +1,8 @@
+benchpress
+cyclemachine
+dumbbells
+latpulldown
+rowingmachine
+shoulderpress
+smith
+treadmill
