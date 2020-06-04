@@ -15,13 +15,15 @@ async function start(){
     //load dict
     await loadDict();
     console.log('Successfully loaded class names');
-    
+
     //test model
     console.log('Trying with preprocessing:');
     const image = document.getElementById('img');
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted:');
     let prediction_index = findMaxIndices(pred, 1);
+    console.log('list' + prediction_index);
+    console.log('index 0' + prediction_index[0]);
     console.log(class_names[prediction_index[0]]);
 
 }
@@ -76,7 +78,7 @@ async function loadDict(){
         dataType: 'text'
     }).done((data)=>{
         const class_list = data.split(/\n/);
-        for (let i = 0; i < class_list.length - 1; i ++){
+        for (let i = 0; i < class_list.length; i ++){
             let gym_equipment = class_list[i];
             class_names[i] = gym_equipment; //load gym equipment name into global list
         }
