@@ -1,7 +1,12 @@
 /* Variables */
 let model;
 let class_names = [];
-const webcamElement = document.getElementById('webcam');
+const player = document.getElementById('player');
+const supported = 'mediaDevices' in navigator;
+
+const constraints = {
+    video: true,
+};
 
 /**
  * @description load the model
@@ -16,9 +21,12 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    // Create an object from Tensorflow.js data API which could capture image 
-    // from the web camera as Tensor.
-    const webcam = await tf.data.webcam(webcamElement);
+    //take video data from camera and stream
+    navigator.mediaDevices.getUserMedia(constraints)
+        .then((stream) => {
+            player.srcObject = stream;
+        });
+
     while (true) {
         document.getElementById('console').innerText = 'hi';
         const image = await webcam.capture();
