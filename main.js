@@ -1,8 +1,13 @@
+const supported = 'mediaDevices' in navigator;
+const player = document.getElementById('player');
+const canvas = document.getElementById('canvas');
+const context = canvas.getContext('2d');
+const captureButton = document.getElementById('capture');
+
 /* Variables */
 let model;
 let class_names = [];
-const player = document.getElementById('player');
-const supported = 'mediaDevices' in navigator;
+
 
 const constraints = {
     video: true,
@@ -21,11 +26,19 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
+    //set up capture button
+    captureButton.addEventListener('click', () => {
+        //Draw the video fram to canvas
+        context.drawImage(player, 0, 0, canvas.width, canvas.height);
+    });
+        
     //take video data from camera and stream
     navigator.mediaDevices.getUserMedia(constraints)
         .then((stream) => {
             player.srcObject = stream;
         });
+    
+
 
     while (true) {
         document.getElementById('console').innerText = 'hi';
