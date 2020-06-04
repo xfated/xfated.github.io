@@ -16,11 +16,10 @@
 	<!-- Add test image -->
 	
 	<!-- Allow user to take a snapshot-->
-	<video id="webcam" autoplay playsinline width="320" height="240"></video>	
-	<canvas id="canvas" class="d-none"></canvas>
-	<audio id="snapSound" src="audio/snap.wav" preload="auto"></audio>
-
-	<html id="download-photo" href="">Download photo</html>
+	<form runat="server">
+		<input id="image-input" type="file" accept="image/*" capture="environment">
+		<img id="captured-image" src="#" alt="https://i.imgur.com/JlUvsxa.jpg" />
+	</form>
 
 	<!-- main script -->
 	<script src="main.js"> </script>

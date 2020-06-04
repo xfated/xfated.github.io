@@ -1,8 +1,4 @@
-const { Webcam } = require('webcam-easy');
-
-const webcamElement = document.getElementById('webcam');
-const canvasElement = document.getElementById('canvas');
-const webcam = new Webcam(webcamElement, 'environment', canvasElement);
+const input = document.querySelector("#image-input");
 
 /* Variables */
 let model;
@@ -21,15 +17,11 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    webcam.start()
-        .then(result => {
-            console.log("Webcam started");
-        }).catch(err => {
-            console.error(err);
-        })
-    
-    let image = webcam.snap();
-
+    while(true){
+        $("#image-input").change(()=>{
+            readURL(this);
+        });
+    }
     /*
     while (true) {
         document.getElementById('console').innerText = 'hi';
@@ -112,3 +104,17 @@ async function loadDict(){
     })
 }
 
+/**
+ * @description displays captured image
+ */
+function readURL(input){
+    if (input.files && input.files[0]){
+        var reader = new FileReader();
+        
+        reader.onload = function(e){
+            document.getElementById("captured-image").src = e.target.result;
+        };
+
+        reader.readAsDataURL(input.files[0]); //convert to base64 string
+    }
+}

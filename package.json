@@ -16,7 +16,5 @@
     "url": "https://github.com/xfated/xfated.github.io/issues"
   },
   "homepage": "https://github.com/xfated/xfated.github.io#readme",
-  "dependencies": {
-    "webcam-easy": "^1.0.5"
-  }
+  "dependencies": {}
 }
