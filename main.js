@@ -20,16 +20,17 @@ async function start(){
     // from the web camera as Tensor.
     const webcam = await tf.data.webcam(webcamElement);
     while (true) {
+        document.getElementById('console').innerText = 'hi';
         const image = await webcam.capture();
-        const pred = model.predict(preprocess(image)).dataSync();
+        const pred = model.predict(image).dataSync();
 
         console.log('predicted:');
         let prediction_index = findMaxIndices(pred, 1);
         let equipment = class_names[prediction_index[0]];
-        document.getElementById('console').innerText = `
+        /*document.getElementById('console').innerText = `
             prediction: ${equiment}\n
             probability: ${pred[prediction_index]}`; 
-        
+        */
         image.dispose();
 
         await tf.nextFrame();
