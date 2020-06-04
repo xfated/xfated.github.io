@@ -5,6 +5,11 @@ const reader = new FileReader();
 let model;
 let class_names = [];
 
+$("#image-input").change(()=>{
+    readURL(this);
+});
+
+
 /**
  * @description load the model
  */
@@ -18,10 +23,7 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    $("#image-input").change(()=>{
-        readURL(this);
-    });
-    
+
     /*
     while (true) {
         document.getElementById('console').innerText = 'hi';
