@@ -1,17 +1,13 @@
-const supported = 'mediaDevices' in navigator;
-const player = document.getElementById('player');
-const canvas = document.getElementById('canvas');
-const context = canvas.getContext('2d');
-const captureButton = document.getElementById('capture');
+const { Webcam } = requires('webcam-easy');
+
+const webcamElement = document.getElementById('webcam');
+const canvasElement = document.getElementById('canvas');
+const snapSoundElement = document.getElementById('snapSound');
+const webcam = new Webcam(webcamElement, 'environment', canvasElement, snapSoundElement);
 
 /* Variables */
 let model;
 let class_names = [];
-
-
-const constraints = {
-    video: true,
-};
 
 /**
  * @description load the model
@@ -26,20 +22,15 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    //set up capture button
-    captureButton.addEventListener('click', () => {
-        //Draw the video fram to canvas
-        context.drawImage(player, 0, 0, canvas.width, canvas.height);
-    });
-        
-    //take video data from camera and stream
-    navigator.mediaDevices.getUserMedia(constraints)
-        .then((stream) => {
-            player.srcObject = stream;
-        });
+    webcam.start()
+        .then(result => {
+            console.log("Webcam started");
+        }).catch(err => {
+            console.error(err);
+        })
     
+    let image = webcam.snap();
 
-    document.getElementById('console').innerText = 'hi';
     /*
     while (true) {
         document.getElementById('console').innerText = 'hi';
@@ -62,8 +53,6 @@ async function start(){
     console.log(class_names[prediction_index[0]]);*/
 
 }
-
-start()
 
 /**
  * @description preprocess the image to size (224, 224) for our model
@@ -121,3 +110,5 @@ async function loadDict(){
         }
     })
 }
+
+start();

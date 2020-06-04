@@ -16,9 +16,11 @@
 	<!-- Add test image -->
 	
 	<!-- Allow user to take a snapshot-->
-	<video id="player" controls autoplay></video>
-	<button id="capture">Capture</button>
-	<canvas id="canvas" width=320 height=240></canvas>
+	<video id="webcam" autoplay playsinline width="320" height="240"></video>	
+	<canvas id="canvas" class="d-none"></canvas>
+	<audio id="snapSound" src="audio/snap.wav" preload="auto"></audio>
+
+	<html id="download-photo" href="">Download photo</html>
 
 	<!-- main script -->
 	<script src="main.js"> </script>
