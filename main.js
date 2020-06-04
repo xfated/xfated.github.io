@@ -14,7 +14,8 @@ async function start(){
 
     //test model
     const image = document.getElementById('img');
-    const pred = model.predict(image).dataSync();
+    console.log(image.shape);
+    const pred = model.predict(image);
     console.log(pred);
 
 }
