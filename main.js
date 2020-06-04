@@ -1,6 +1,6 @@
 /* Variables */
 let model;
-
+let class_names = [];
 
 
 /**
@@ -12,14 +12,17 @@ async function start(){
     model = await tf.loadLayersModel('model/model.json');
     console.log('Successfully loaded model');
 
+    //load dict
+    await loadDict();
+    console.log('Successfully loaded class names');
+    
     //test model
     console.log('Trying with preprocessing:');
     const image = document.getElementById('img');
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted:');
-    for (let i = 0 ; i < 8 ; i ++){
-        console.log(pred[0]);
-    }
+    let prediction_index = findMaxIndices(pred, 1);
+    console.log(class_names[prediction_index[0]]);
 
 }
 
@@ -44,12 +47,38 @@ function preprocess(imgData){
 }
 
 /**
- * @description make a prediction on the given image
+ * @description get indices of top probabilities
+ * @param {Array} prediction_array probabilities of each class
+ * @param {Integer} count number of top categories we want
  */
-function prediction(){
-    
-    const image = document.getElementById('img');
-    const pred = model.predict(preprocess(image)).dataSync();
-    console.log(pred);
+function findMaxIndices(prediction_array, count){
+    let output = [];
+    for (let i = 0; i < prediction_array; i ++){
+        output.push(i); // add index to output array
+        if (output.length > count){
+            output.sort(function(a, b){
+                return prediction_array[a] - prediction_array[b]
+            });
+            output.pop(); //remove smallest element
+        }
+    } 
+    return output;
+}
 
+/**
+ * @description load dictionary with class names
+ */
+async function loadDict(){
+    let loc = 'model/class_names.txt';
+
+    await $.ajax({
+        url: loc,
+        dataType: 'text'
+    }).done((data)=>{
+        const class_list = data.split(/\n/);
+        for (let i = 0; i < class_list.length - 1; i ++){
+            let gym_equipment = class_list[i];
+            class_names[i] = gym_equipment; //load gym equipment name into global list
+        }
+    })
 }
