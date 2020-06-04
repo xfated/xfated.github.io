@@ -15,8 +15,7 @@ async function start(){
     //test model
     console.log('Image shape is:');
     const image = document.getElementById('img');
-    console.log(image.shape);
-    const pred = model.predict(image);
+    const pred = model.predict(preprocess(image));
     console.log(pred);
 
 }
@@ -26,8 +25,19 @@ start()
 /**
  * @description preprocess the image to size (224, 224) for our model
  */
-function preprocess(img){
-    return tf.to
+function preprocess(imgData){
+    return tf.tidy(() => {
+        //convert to a tensor
+        let tensor = tf.browser.fromPixels(imgData, numChannels = 1);
+
+        //resize
+        const resized = tf.image.resizeBilinear(tensor, [224,224]).toFloat();
+
+        //add a dimension to get a batch shape
+        const batched = resized.expandDims(0);
+
+        return batched
+    })
 }
 
 /**
