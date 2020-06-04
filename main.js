@@ -9,6 +9,9 @@ $("#image-input").change(()=>{
     readURL(this);
 });
 
+$("#captured-image").change(()=>{
+    predictions();
+})
 
 /**
  * @description load the model
@@ -107,7 +110,7 @@ async function loadDict(){
 }
 
 /**
- * @description displays captured image
+ * @description converts captured image for display
  */
 function readURL(input){
     if (input.files && input.files[0]){
@@ -117,4 +120,15 @@ function readURL(input){
 
         reader.readAsDataURL(input.files[0]); //convert to base64 string
     }
+}
+
+/** 
+ * @description wrapper function for my predictions
+ */
+function predictions(){
+    const image = document.getElementById('img');
+    const pred = model.predict(preprocess(image)).dataSync();
+    console.log('predicted:');
+    let prediction_index = findMaxIndices(pred, 1);
+    console.log(class_names[prediction_index[0]]);
 }
