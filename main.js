@@ -1,7 +1,7 @@
 /* Variables */
 let model;
 let class_names = [];
-
+const webcamElement = document.getElementById('webmcam');
 
 /**
  * @description load the model
@@ -16,14 +16,29 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    //test model
+    // Create an object from Tensorflow.js data API which could capture image 
+    // from the web camera as Tensor.
+    const webcam = await tf.data.webcam(webcamElement);
+    while (true) {
+        const image = await webcam.capture();
+        const pred = model.predict(preprocess(image)).dataSync();
+
+        console.log('predicted:');
+        let prediction_index = findMaxIndices(pred, 1);
+        let equipment = class_names[prediction_index[0]];
+        document.getElementById('console').innerText = `
+            prediction: ${equi[ment]}\n
+            probability: ${pred[prediction_index]}`; 
+        
+        img.dispose();
+
+        await tf.nextFrame();
+    }
     console.log('Trying with preprocessing:');
     const image = document.getElementById('img');
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted:');
     let prediction_index = findMaxIndices(pred, 1);
-    console.log('list' + prediction_index);
-    console.log('index 0' + prediction_index[0]);
     console.log(class_names[prediction_index[0]]);
 
 }
@@ -57,6 +72,8 @@ function findMaxIndices(prediction_array, count){
     let output = [];
     for (let i = 0; i < prediction_array.length ; i ++){
         output.push(i); // add index to output array
+        /* output will always have 'count' number of elements */
+        /* each time take one, sort, remove smallest one */
         if (output.length > count){
             output.sort(function(a, b){
                 return prediction_array[a] - prediction_array[b];
