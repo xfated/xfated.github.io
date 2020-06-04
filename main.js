@@ -115,7 +115,8 @@ async function loadDict(){
 function readURL(input){
     if (input.files && input.files[0]){
         reader.onload = function(e){
-            document.getElementById("captured-image").src = e.target.result;
+            $('#blah').attr('src', e.target.result);
+            //document.getElementById("captured-image").src = e.target.result;
         };
 
         reader.readAsDataURL(input.files[0]); //convert to base64 string
@@ -126,9 +127,11 @@ function readURL(input){
  * @description wrapper function for my predictions
  */
 function predictions(){
-    const image = document.getElementById('img');
+    const image = document.getElementById('captured-image');
     const pred = model.predict(preprocess(image)).dataSync();
-    console.log('predicted:');
+    console.log('predicted');
     let prediction_index = findMaxIndices(pred, 1);
-    console.log(class_names[prediction_index[0]]);
+    document.getElementById('predict').innerText = `
+      prediction: ${class_names[prediction_index[0]]}\n
+      probability: ${pred[prediction_index[0]]}`;
 }
