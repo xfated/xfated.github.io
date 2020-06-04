@@ -6,11 +6,11 @@ let model;
 let class_names = [];
 
 $("#image-input").change(function(){
-    console.log('detected change');
     readURL(this);
 });
 
 $("#captured-image").change(function(){
+    console.log('change detected');
     predictions();
 })
 
