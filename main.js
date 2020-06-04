@@ -17,7 +17,9 @@ async function start(){
     const image = document.getElementById('img');
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted:');
-    console.log(pred);
+    for (let i = 0 ; i < 8 ; i ++){
+        console.log(pred[0]);
+    }
 
 }
 
