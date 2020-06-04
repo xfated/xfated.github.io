@@ -15,7 +15,7 @@ async function start(){
     //test model
     console.log('Trying with preprocessing:');
     const image = document.getElementById('img');
-    const pred = model.predict(preprocess(image));
+    const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted:');
     console.log(pred);
 
