@@ -30,7 +30,7 @@ async function start(){
             prediction: ${equi[ment]}\n
             probability: ${pred[prediction_index]}`; 
         
-        img.dispose();
+        image.dispose();
 
         await tf.nextFrame();
     }
