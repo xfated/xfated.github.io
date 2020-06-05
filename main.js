@@ -21,7 +21,6 @@ let prediction_chart = new CanvasJS.Chart("prediction-chart",{
         dataPoints: predictions
     }]
 });
-chart.render();
 
 $("#image-input").change(function(){
     readURL(this);
