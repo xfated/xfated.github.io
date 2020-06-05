@@ -21,15 +21,13 @@
     },
     {
         "name":"Smith Machine",
-        "desc":"The Smith machine consists of a barbell that is fixed within steel rails allowing only vertical or near-vertical movement. It can be used for a wide variety of exercises though it is most commonly used to perform "Smith machine squats".",
+        "desc":"The Smith machine consists of a barbell that is fixed within steel rails allowing only vertical or near-vertical movement. It can be used for a wide variety of exercises though it is most commonly used to perform 'Smith machine squats'.",
     },
     {
         "name":"Treadmill",
         "desc":"The treadmill is an excellent source of exercise that puts less stress on the body than walking or running on a flat surface outdoors",
     }
 ]
-
-
 
 
 
