@@ -16,7 +16,7 @@ let prediction_chart = new CanvasJS.Chart("prediction-chart",{
     },
     data: [{
         type:"pie",
-        backgroundColor:null,
+        backgroundColor:'',
         showInLegend: true,
         legendText:"{indexLabel}",
         dataPoints: predictions
@@ -126,7 +126,7 @@ function readURL(input){
 /** 
  * @description wrapper function for my predictions
  */
-function predicting(num_predictions){
+async function predicting(num_predictions){
     const image = document.getElementById('captured-image');
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted');
@@ -136,18 +136,31 @@ function predicting(num_predictions){
     let category_name = class_names[prediction_index[0]].name;
     let category_description = class_names[prediction_index[0]].desc;
     document.getElementById('prediction-output').innerText = `
-      Equipment: ${category_name}\n
-      Description: ${category_description}`;
+      <b>Equipment:</b> ${category_name} <br>
+      <b>Description:</b> ${category_description}`;
     
     /* update chart */
-    for(let i = 0; i < num_predictions; i ++){
-        predictions.push({
-            y: pred[prediction_index[i]]*100, //change to 100%
-            indexLabel: class_names[prediction_index[0]].name
-        })
-    }
+    predictions = await updateChart(preds, num_predictions);
+
     prediction_chart.render();
 }
+
+/**
+ * @description sync function to update predictions before chart render
+ */
+function updateChart(preds, num_predictions){
+    let results = []
+
+    for(let i = 0; i < num_predictions; i ++){
+        results.push({
+            y: pred[prediction_index[i]]*100, //change to 100%
+            indexLabel: class_names[prediction_index[i]].name
+        })
+    }
+
+    return results;
+}
+
 
 /**
  * @description workaround function to change name of input file button

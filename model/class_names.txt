@@ -12,6 +12,10 @@
         "desc":"Dumbbells are often used for joint-isolation exercises such as biceps curls, chest flyes or shoulder raises. They're convenient option because they can be used pretty much anywhere."
     },
     {
+        "name":"Lat Pulldown Machine",
+        "desc":"The lat pulldown machine aids in strengthening several muscles of the upper body and plays a key role in improving posture and spinal stabilization."
+    },
+    {
         "name":"Rowing Machine",
         "desc":"A rowing machine is essentially a piece of exercise equipment that mimics the motion of rowing a boat in water, making it a full body workout! Great for weight loss, toning and building muscles, and increasing stamina."
     },
