@@ -135,7 +135,7 @@ function predicting(num_predictions){
     /* take highest probability as prediction */
     let category_name = class_names[prediction_index[0]].name;
     let category_description = class_names[prediction_index[0]].desc;
-    document.getElementById('predict').innerText = `
+    document.getElementById('prediction-output').innerText = `
       Equipment: ${category_name}\n
       Description: ${category_description}`;
     
