@@ -20,38 +20,43 @@
 			<h1><strong>GYM</strong><em>eanswhat?</em></h1>
 		</header>
 
-		<!-- Description -->
-		<article id="description">
-			<h2>Gym Equipment Classifier</h2>
-			<h3>Description</h3>
-			<p>
-				This project explores the use of transfer learning to create a classifer for images of gym equipment and deploying it on a web page.
-			</p>
-		</article>
-		
-		<!-- Allow user to take a snapshot-->
-		<section id="prediction-section">
-			<form runat="server">
-				<div>
-					<img id="captured-image" class ="center-cropped" src="default.jpg" alt="your image!" width=300 />
-				</div>
-				<div>
-					<label>Take a picture here ==></label>
-					<input id="image-input" type="file" accept="image/*" capture="environment"/>
-				</div>
-			</form>
-		</section>
+		<div class="container">
+			<!-- Title -->
+			<div id="page-title">
+				<h2>Gym Equipment Classifier</h2>
+			</div>
+			<hr>
+			<!-- Description -->
+			<div id="description">
+				<p>
+					<b>Description</b><br>
+					This project explores the use of transfer learning to create a classifer for images of gym equipment and deploying it on a web page.
+				</p>
+			</div>
+			
+			<!-- Allow user to take a snapshot-->
+			<div class="image-capture">
+				<form runat="server">
+					<div>
+						<img id="captured-image" class ="center-cropped" src="default.jpg" alt="your image" width=300 />
+					</div>
+					<div>
+						<label>Submit your picture here ==></label>
+						<input id="image-input" type="file" accept="image/*" capture="environment"/>
+					</div>
+				</form>
+			</div>
 
-		<section>
-			<div id="predict"></div>
-		</section>
-		
-		<footer id="main-footer">
-			<small><cite>Gym Equipment Classifier</cite> by Tay Kai Yang</small>
-		</footer>
+			<div class="prediction-output">
+				<div id="predict"></div>
+			</div>
+			
+			<footer	class="main-footer">
+				<small><cite>Gym Equipment Classifier</cite> by Tay Kai Yang</small>
+			</footer>
 
-		<div style="margin-top:500px"></div>
-
+			<div style="margin-top:500px"></div>
+		</div>
 		<!-- main script -->
 		<script src="main.js"> </script>
 	</body>

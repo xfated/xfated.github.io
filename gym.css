@@ -1,22 +1,33 @@
-body{
-    background-color:#f4f4f4;
-    font-family:  Arial, Helvetica, sans-serif;
-}
 #main-header{
     text-align: center;
     background-color:grey;
     color:white;
     padding:2px;
-    font-size: 30px;
-    font-family: "Bookman Old Style", Arial;
+    font: normal 30px "Bookman Old Style", Arial, Helvetica;
 }
 
-#main-footer{
-    text-align:right;
-    font-size:18px;
+body{
+    background-color:#f4f4f4;
+    font-family:  Arial, Helvetica, sans-serif;
+    line-height: 1.6em;
+    margin: 0;
 }
 
-#prediction-section{
+.container{
+    width: 80%;
+    margin: auto;
+}
+
+.image-capture{
     text-align:center;
     padding:5px;
+}
+
+.prediction-output{
+
+}
+
+.main-footer{
+    text-align:right;
+    font-size:12px;
 }
