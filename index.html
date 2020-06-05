@@ -11,8 +11,12 @@
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+		<!-- canvasjs script -->
+		<script src="https://canvasjs.com/assets/script/canvasjs.min.js"></script>
+		
 		<!-- main css -->
 		<link rel = "stylesheet" type="text/css" href="gym.css">
+
 	</head>
 	<body>
 		<!-- Main headings -->
@@ -62,9 +66,7 @@
 					</div>
 				</div>
 				<div class="block">
-					<div id="prediction-graph">
-						
-					</div>
+					<div id="prediction-chart"></div>
 				</div>
 			</section>
 			
@@ -77,17 +79,18 @@
 					the online images might not be representative of real-life images. 
 				</p>
 			</section>
-
-			<footer	class="main-footer">
-				<small><cite>Gym Equipment Classifier</cite> by Tay Kai Yang</small>
-			</footer>
- 
 		</div>  <!-- Container ends here -->
+		
+		<footer	class="main-footer">
+			<small><cite>Gym Equipment Classifier</cite> by Tay Kai Yang</small>
+		</footer>
+
+		
 		<!-- main script -->
 		<script src="main.js"> </script>
 	</body>
 	<script>
 		console.log('starting');
-		start('en')
+		start();
 	</script>
 </html>

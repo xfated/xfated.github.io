@@ -4,6 +4,24 @@ const reader = new FileReader();
 /* Variables */
 let model;
 let class_names = [];
+let predictions = [];
+
+let prediction_chart = new CanvasJS.Chart("prediction-chart",{
+    title:{
+        text:"Top 3 predictions"
+    },
+    legend: {
+        maxWidth: 350,
+        itemWidth: 120
+    },
+    data: [{
+        type:"pie",
+        showInLegend: true,
+        legendText:"{indexLabel}",
+        dataPoints: predictions
+    }]
+});
+chart.render();
 
 $("#image-input").change(function(){
     readURL(this);
@@ -11,7 +29,7 @@ $("#image-input").change(function(){
 
 $("#captured-image").on('load',function(){
     console.log('change detected');
-    predictions();
+    predicting();
 })
 
 /**
@@ -27,31 +45,10 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-
-    /*
-    while (true) {
-        document.getElementById('console').innerText = 'hi';
-        const image = await webcam.capture();
-        const pred = model.predict(image).dataSync();
-
-        console.log('predicted:');
-        let prediction_index = findMaxIndices(pred, 1);
-        let equipment = class_names[prediction_index[0]];
-        
-        image.dispose();
-
-        await tf.nextFrame();
-    }
-    console.log('Trying with preprocessing:');
-    const image = document.getElementById('img');
-    const pred = model.predict(preprocess(image)).dataSync();
-    console.log('predicted:');
-    let prediction_index = findMaxIndices(pred, 1);
-    console.log(class_names[prediction_index[0]]);*/
+    //warmup
+    predicting();
 
 }
-
-start();
 
 /**
  * @description preprocess the image to size (224, 224) for our model
@@ -102,7 +99,7 @@ async function loadDict(){
         url: loc,
         dataType: 'text'
     }).done((data)=>{
-        const class_list = data.split(/\n/);
+        const class_list = JSON.parse(data);
         for (let i = 0; i < class_list.length; i ++){
             let gym_equipment = class_list[i];
             class_names[i] = gym_equipment; //load gym equipment name into global list
@@ -127,14 +124,27 @@ function readURL(input){
 /** 
  * @description wrapper function for my predictions
  */
-function predictions(){
+function predicting(){
     const image = document.getElementById('captured-image');
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted');
-    let prediction_index = findMaxIndices(pred, 1);
+    let prediction_index = findMaxIndices(pred, 3);
+
+    /* take highest probability as prediction */
+    let category_name = class_names[prediction_index[0]].name;
+    let category_description = class_names[prediction_index[0]].desc;
     document.getElementById('predict').innerText = `
-      prediction: ${class_names[prediction_index[0]]}\n
-      probability: ${pred[prediction_index[0]]}`;
+      Equipment: ${category_name}\n
+      Description: ${category_description}`;
+    
+    /* update chart */
+    for(let i = 0; i < 3; i ++){
+        predictions.push({
+            y: pred[prediction_index[i]]*100, //change to 100%
+            indexLabel: class_names[prediction_index[0]].name
+        })
+    }
+    prediction_chart.render();
 }
 
 /**
@@ -145,3 +155,4 @@ function FileSelected(e)
     file = document.getElementById('image-input').files[document.getElementById('image-input').files.length - 1];
     document.getElementById('fileName').innerHtml= file.name;
 }
+
