@@ -136,3 +136,12 @@ function predictions(){
       prediction: ${class_names[prediction_index[0]]}\n
       probability: ${pred[prediction_index[0]]}`;
 }
+
+/**
+ * @description workaround function to change name of input file button
+ */
+function FileSelected(e)
+{
+    file = document.getElementById('image-input').files[document.getElementById('image-input').files.length - 1];
+    document.getElementById('fileName').innerHtml= file.name;
+}

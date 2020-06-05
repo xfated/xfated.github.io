@@ -10,8 +10,13 @@
     margin-top:2px;
     margin-bottom:2px;
 }
+
 .header-link{
     text-decoration:none;
+}
+
+#capture{
+    text-align:center;
 }
 
 body{
@@ -22,13 +27,14 @@ body{
 }
 
 .container{
-    width: 80%;
+    width: 90%;
     margin: auto;
 }
 
+
 .image-capture{
     text-align:center;
-    padding:5px;
+    padding:5px
 }
 
 .prediction-output{

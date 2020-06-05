@@ -33,6 +33,7 @@
 			<div class="description">
 				<p>
 					This humble project aims to help beginner gymmers identify the various machines found at the gym! <br>
+					You can take a picture with your phone's back camera using the button below and the predictions will be displayed beneath.
 				</p>
 			</div>
 			
@@ -43,8 +44,13 @@
 						<img id="captured-image" class ="center-cropped" src="default.jpg" alt="your image" width =50% />
 					</div>
 					<div>
-						<label>Submit your picture here ==></label>
-						<input id="image-input" type="file" accept="image/*" capture="environment"/>
+						<div id="capture-button">
+							<input type="button" onclick="document.getElementById('image-input').click()" value="Take a picture">
+							<span id='fileName'></span>
+						</div>
+						<div>
+							<input id="image-input" type="file" accept="image/*" capture="environment" onchange="FileSelected()" style="width:0;"/>
+						</div>		
 					</div>
 				</form>
 			</div>
@@ -55,7 +61,7 @@
 			
 			<div class="description">
 				<p>
-					Equipme is a CNN classifier that uses transfer learning from the VGG16 model trained on imagenet dataset to regocgnize categories of gym equipment.
+						<b>EQUIPMe</b> is a CNN classifier that uses transfer learning from the VGG16 model trained on imagenet dataset to regocgnize categories of gym equipment.
 					It is currently able to detect 8 different categories of gym equipment using images sourced from the web. Though the validation accuracy reached 99%,
 					the online images might not be representative of real-life images. 
 				</p>
@@ -63,8 +69,8 @@
 			<footer	class="main-footer">
 				<small><cite>Gym Equipment Classifier</cite> by Tay Kai Yang</small>
 			</footer>
-
-		</div>
+ 
+		</div>  <!-- Container ends here -->
 		<!-- main script -->
 		<script src="main.js"> </script>
 	</body>
