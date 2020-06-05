@@ -140,7 +140,7 @@ async function predicting(num_predictions){
       <b>Description:</b> ${category_description}`;
     
     /* update chart */
-    predictions = await updateChart(preds, num_predictions);
+    predictions = await updateChart(pred, num_predictions);
 
     prediction_chart.render();
 }
