@@ -1,0 +1,16 @@
+#main-header{
+    text-align:center;
+    background-color:grey;
+    color:white;
+    padding:5px;
+}
+
+#main-footer{
+    text-align:right;
+    font-size:18px;
+}
+
+#prediction-section{
+    text-align:center;
+    padding:5px;
+}

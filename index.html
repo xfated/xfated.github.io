@@ -1,40 +1,57 @@
 <!DOCTYPE html>
 <html lang="en">
 	<head>
-		<meta charset="UTF-8" />
 		<title>Gym Equipment Classifier</title>
-
+		<meta name="description" content="Gym equipment classifier" charset="UTF-8" >
+		<meta name="keywords" content="gym equipment classifier, gym equipment, gym, transfer learning">
+		
 		<!-- Tensorflow.js script -->
 		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>	
 
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
+		<!-- main css -->
+		<link rel = "stylesheet" href="gym.css">
 	</head>
 	<body>
 		<!-- Main headings -->
-		<h1><strong>GYM</strong><em>eanswhat?</em></h1>
+		<header id="main-header">
+			<h1><strong>GYM</strong><em>eanswhat?</em></h1>
+		</header>
 
 		<!-- Description -->
-		<h2>Gym Equipment Classifier</h2>
-		<h3>Description</h3>
-		<p>
-			This project explores the use of transfer learning to create a classifer for images of gym equipment and deploying it on a web page.
-		</p>
-
+		<article id="description">
+			<h2>Gym Equipment Classifier</h2>
+			<h3>Description</h3>
+			<p>
+				This project explores the use of transfer learning to create a classifer for images of gym equipment and deploying it on a web page.
+			</p>
+		</article>
+		
 		<!-- Allow user to take a snapshot-->
-		<form runat="server">
-			<div>
-				<img id="captured-image" class ="center-cropped" src="default.jpg" alt="your image!" width=300 />
-			</div>
-			<div>
-				<label>Take a picture here ==></label>
-				<input id="image-input" type="file" accept="image/*" capture="environment"/>
-			</div>
-		</form>
+		<section id="prediction-section">
+			<form runat="server">
+				<div>
+					<img id="captured-image" class ="center-cropped" src="default.jpg" alt="your image!" width=300 />
+				</div>
+				<div>
+					<label>Take a picture here ==></label>
+					<input id="image-input" type="file" accept="image/*" capture="environment"/>
+				</div>
+			</form>
+		</section>
 
-		<div id="predict"></div>
+		<section>
+			<div id="predict"></div>
+		</section>
+		
+		<footer id="main-footer">
+			<small><cite>Gym Equipment Classifier</cite> by Tay Kai Yang</small>
+		</footer>
+
 		<div style="margin-top:500px"></div>
+
 		<!-- main script -->
 		<script src="main.js"> </script>
 	</body>
