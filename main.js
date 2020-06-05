@@ -37,6 +37,8 @@ $("#captured-image").on('load',function(){
  */
 async function start(){
     
+    console.log("Start function");
+    
     //load model
     model = await tf.loadLayersModel('model/model.json');
     console.log('Successfully loaded model');
@@ -126,7 +128,6 @@ function readURL(input){
  */
 function predicting(num_predictions){
     const image = document.getElementById('captured-image');
-    console.log(image);
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted');
     let prediction_index = findMaxIndices(pred, num_predictions);
