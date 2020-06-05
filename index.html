@@ -1,30 +1,44 @@
+<!DOCTYPE html>
 <html lang="en">
-<head>
-	<meta charset="UTF-8" />
-	<title>Kai Yang's Gym Equipment Classifier</title>
+	<head>
+		<meta charset="UTF-8" />
+		<title>Gym Equipment Classifier</title>
 
-	<!-- Tensorflow.js script -->
-	<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>	
+		<!-- Tensorflow.js script -->
+		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>	
 
-	<!-- jQuery library -->
-	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+		<!-- jQuery library -->
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
-</head>
-<body>
-	
-	<!-- Allow user to take a snapshot-->
-	<form runat="server">
-		<input id="image-input" type="file" accept="image/*" capture="environment"/>
-		<img id="captured-image" src="#" alt="your image!" height=480 width=270 />
-	</form>
+	</head>
+	<body>
+		<!-- Main headings -->
+		<h1><strong>GYM</strong><em>eanswhat?</em></h1>
 
-	<div id="predict"></div>
+		<!-- Description -->
+		<h2>Gym Equipment Classifier</h2>
+		<h3>Description</h3>
+		<p>
+			This project explores the use of transfer learning to create a classifer for images of gym equipment and deploying it on a web page.
+		</p>
 
-	<!-- main script -->
-	<script src="main.js"> </script>
-</body>
-<script>
-	console.log('starting');
-	start('en')
-</script>
+		<!-- Allow user to take a snapshot-->
+		<form runat="server">
+			<div>
+			<img id="captured-image" src="#" alt="your image!" height=480 width=270 />
+			</div>
+			<div>
+			<input id="image-input" type="file" accept="image/*" capture="environment"/>
+			</div>
+		</form>
+
+		<div id="predict"></div>
+
+		<!-- main script -->
+		<script src="main.js"> </script>
+	</body>
+	<script>
+		console.log('starting');
+		start('en')
+	</script>
 </html>
