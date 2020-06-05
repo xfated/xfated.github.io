@@ -49,7 +49,7 @@ async function start(){
 
     //warmup
     await predicting();
-    chart.title.remove()
+    prediction_chart.title.remove()
 }
 
 /**
