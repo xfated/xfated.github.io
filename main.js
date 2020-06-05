@@ -16,6 +16,7 @@ let prediction_chart = new CanvasJS.Chart("prediction-chart",{
     },
     data: [{
         type:"pie",
+        backgroundColor:null,
         showInLegend: true,
         legendText:"{indexLabel}",
         dataPoints: predictions
@@ -28,7 +29,7 @@ $("#image-input").change(function(){
 
 $("#captured-image").on('load',function(){
     console.log('change detected');
-    predicting();
+    predicting(3);
 })
 
 /**
@@ -45,8 +46,8 @@ async function start(){
     console.log('Successfully loaded class names');
 
     //warmup
-    predicting();
-
+    await predicting();
+    chart.title.remove()
 }
 
 /**
@@ -123,11 +124,12 @@ function readURL(input){
 /** 
  * @description wrapper function for my predictions
  */
-function predicting(){
+function predicting(num_predictions){
     const image = document.getElementById('captured-image');
+    console.log(image);
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted');
-    let prediction_index = findMaxIndices(pred, 3);
+    let prediction_index = findMaxIndices(pred, num_predictions);
 
     /* take highest probability as prediction */
     let category_name = class_names[prediction_index[0]].name;
@@ -137,7 +139,7 @@ function predicting(){
       Description: ${category_description}`;
     
     /* update chart */
-    for(let i = 0; i < 3; i ++){
+    for(let i = 0; i < num_predictions; i ++){
         predictions.push({
             y: pred[prediction_index[i]]*100, //change to 100%
             indexLabel: class_names[prediction_index[0]].name
