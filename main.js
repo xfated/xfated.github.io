@@ -9,7 +9,7 @@ $("#image-input").change(function(){
     readURL(this);
 });
 
-$("#captured-image").load(function(){
+$("#captured-image").on('load',function(){
     console.log('change detected');
     predictions();
 })
