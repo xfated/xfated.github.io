@@ -1,9 +1,14 @@
 #main-header{
-    text-align: center;
-    background-color:grey;
-    color:white;
-    padding:2px;
-    font: normal 30px "Bookman Old Style", Arial, Helvetica;
+    text-align: left;
+    background-color:lightgrey;
+    color:rgb(43, 44, 44);
+    padding:10px;
+}
+#main-header h1{
+    margin-left:5%;
+    font: normal 40px "Palatino Linotype", Arial, Helvetica;
+    margin-top:2px;
+    margin-bottom:2px;
 }
 
 body{
