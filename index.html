@@ -16,10 +16,12 @@
 	</head>
 	<body>
 		<!-- Main headings -->
-		<header id="main-header">
-			<h1>EQUIPM<small>e</small>
-			</h1>
-		</header>
+		<a class="header-link" href="#">
+			<header id="main-header">
+				<h1>EQUIPM<small>e</small>
+				</h1>
+			</header>
+		</a>
 
 		<div class="container">
 			<!-- Title -->
@@ -28,12 +30,9 @@
 			</div>
 			<hr>
 			<!-- Description -->
-			<div id="description">
+			<div class="description">
 				<p>
 					This humble project aims to help beginner gymmers identify the various machines found at the gym! <br>
-					Equipme is a CNN classifier that uses transfer learning from the VGG16 model trained on imagenet dataset to regocgnize categories of gym equipment.
-					It is currently able to detect 8 different categories of gym equipment using images sourced from the web. Though the validation accuracy reached 99%,
-					the online images might not be representative of real-life images.  
 				</p>
 			</div>
 			
@@ -54,6 +53,13 @@
 				<div id="predict"></div>
 			</div>
 			
+			<div class="description">
+				<p>
+					Equipme is a CNN classifier that uses transfer learning from the VGG16 model trained on imagenet dataset to regocgnize categories of gym equipment.
+					It is currently able to detect 8 different categories of gym equipment using images sourced from the web. Though the validation accuracy reached 99%,
+					the online images might not be representative of real-life images. 
+				</p>
+			</div>
 			<footer	class="main-footer">
 				<small><cite>Gym Equipment Classifier</cite> by Tay Kai Yang</small>
 			</footer>
