@@ -25,15 +25,16 @@
 		<!-- Allow user to take a snapshot-->
 		<form runat="server">
 			<div>
-			<img id="captured-image" src="#" alt="your image!" height=480 width=270 />
+				<img id="captured-image" class ="center-cropped" src="default.jpg" alt="your image!" width=300 />
 			</div>
 			<div>
-			<input id="image-input" type="file" accept="image/*" capture="environment"/>
+				<label>Take a picture here ==></label>
+				<input id="image-input" type="file" accept="image/*" capture="environment"/>
 			</div>
 		</form>
 
 		<div id="predict"></div>
-
+		<div style="margin-top:500px"></div>
 		<!-- main script -->
 		<script src="main.js"> </script>
 	</body>
