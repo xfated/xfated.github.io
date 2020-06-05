@@ -65,7 +65,7 @@ body{
 }
 
 #predictions{
-    overflow:auto;
+    height:300px;
 }
 
 .block #prediction-chart{
