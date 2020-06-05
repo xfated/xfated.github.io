@@ -137,10 +137,10 @@ async function predicting(num_predictions){
     let category_description = class_names[prediction_index[0]].desc;
     document.getElementById('prediction-output').innerText = `
         Equipment: ${category_name}\n
-        Description:</b> ${category_description}`;
+        Description: ${category_description}`;
     
     /* update chart */
-    predictions = await updateChart(pred, num_predictions);
+    predictions = await updateChart(pred, prediction_index, num_predictions);
 
     prediction_chart.render();
 }
@@ -148,7 +148,7 @@ async function predicting(num_predictions){
 /**
  * @description sync function to update predictions before chart render
  */
-function updateChart(preds, num_predictions){
+function updateChart(preds, prediction_index, num_predictions){
     let results = []
 
     for(let i = 0; i < num_predictions; i ++){
