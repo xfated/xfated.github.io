@@ -136,8 +136,8 @@ async function predicting(num_predictions){
     let category_name = class_names[prediction_index[0]].name;
     let category_description = class_names[prediction_index[0]].desc;
     document.getElementById('prediction-output').innerText = `
-      <b>Equipment:</b> ${category_name} <br>
-      <b>Description:</b> ${category_description}`;
+        Equipment: ${category_name}\n
+        Description:</b> ${category_description}`;
     
     /* update chart */
     predictions = await updateChart(pred, num_predictions);
@@ -153,7 +153,7 @@ function updateChart(preds, num_predictions){
 
     for(let i = 0; i < num_predictions; i ++){
         results.push({
-            y: pred[prediction_index[i]]*100, //change to 100%
+            y: preds[prediction_index[i]]*100, //change to 100%
             indexLabel: class_names[prediction_index[i]].name
         })
     }
