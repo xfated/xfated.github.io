@@ -30,18 +30,18 @@
 			</div>
 			<hr>
 			<!-- Description -->
-			<div class="description">
+			<section class="description">
 				<p>
 					This mini project aims to help beginner gymmers identify the various machines found at the gym! <br>
 					You can take a picture with your phone's back camera using the button below and the predictions will be displayed beneath.
 				</p>
-			</div>
+			</section>
 			
 			<!-- Allow user to take a snapshot-->
-			<div class="image-capture">
+			<section class="image-capture">
 				<form runat="server">
 					<div>
-						<img id="captured-image" class ="center-cropped" src="default.jpg" alt="your image" width =50% />
+						<img id="captured-image" class ="center-cropped" src="default.jpg" alt="your image" />
 					</div>
 					<div>
 						<div id="capture-button">
@@ -53,26 +53,31 @@
 						</div>		
 					</div>
 				</form>
-			</div>
+			</section>
 
-			<div class="block">
-				<div id="prediction-output">
-				
-				</div>
-			</div>
-			<div class="block">
-				<div id="prediction-graph">
+			<section id="predictions">
+				<div class="block">
+					<div id="prediction-output">
 					
+					</div>
 				</div>
-			</div>
+				<div class="block">
+					<div id="prediction-graph">
+						
+					</div>
+				</div>
+			</section>
 			
-			<div class="description">
+			<div class="clr"></div>
+
+			<section class="description">
 				<p>
 					<b>EQUIPMe</b> is a CNN classifier that uses transfer learning from the VGG16 model trained on imagenet dataset to regcognize different categories of gym equipment.
 					It is currently able to detect 8 different categories of gym equipment using images sourced from the web. Though the validation accuracy reached 99%,
 					the online images might not be representative of real-life images. 
 				</p>
-			</div>
+			</section>
+
 			<footer	class="main-footer">
 				<small><cite>Gym Equipment Classifier</cite> by Tay Kai Yang</small>
 			</footer>

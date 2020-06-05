@@ -33,7 +33,7 @@ body{
     padding:10px 15px;
     border:none;
     border-radius: 15px;
-    font-family :'Arial Narrow Bold';
+    font: normal 20px 'Arial Narrow Bold';
 }
 
 .block{
@@ -41,16 +41,28 @@ body{
     width:50%;
     padding:10px;
     box-sizing:border-box;
+    position:relative;
 }
+
+.clr{
+    clear:both;
+}
+
 .image-capture{
     text-align:center;
     padding:5px
 }
 
+.image-capture #captured-image{
+    width:60%; 
+    max-width:300px;
+}
+.block #prediction-output{
+    position:relative;
+}
 
-
-.prediction-output{
-    
+.block #prediction-graph{
+    position:relative;
 }
 
 .main-footer{
