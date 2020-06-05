@@ -84,7 +84,7 @@ function findMaxIndices(prediction_array, count){
         /* each time take one, sort, remove smallest one */
         if (output.length > count){
             output.sort(function(a, b){
-                return prediction_array[a] - prediction_array[b];
+                return prediction_array[b] - prediction_array[a];
             }); //descending sort output array
             output.pop(); //remove smallest element
         }
