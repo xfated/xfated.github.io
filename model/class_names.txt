@@ -2,7 +2,7 @@
     {
         "name":"Bench Press",
         "desc":"The Bench Press is a full body, compound exercise. It works your chest, shoulders and triceps most. It's the most effective exercise to gain upper-body strength and muscle mass because it's the upper-body exercise you'll lift most weight on."
-        },
+    },
     {
         "name":"Stationary Exercise Bike",
         "desc":"Riding a stationary exercise bike is an efficient and effective way to burn calories and body fat while strengthening your heart, lungs, and muscles. Compared to some other types of cardio equipment, a stationary bicycle puts less stress on your joints, but it still provides an excellent aerobic workout"
