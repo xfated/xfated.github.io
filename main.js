@@ -27,7 +27,7 @@ let options = {
             display: false
         },
         pointLabels:{
-            fontSize:11
+            fontSize:10
         },
     },
     "elements":{
