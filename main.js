@@ -74,14 +74,8 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-<<<<<<< HEAD
-    document.getElementById('prediction-output').innerText = `
-        Model Loaded.
-        Take a picture with the button above!`;
-=======
     //warmup
     await predicting();
->>>>>>> parent of 0d19b62... changed data update
 }
 
 
