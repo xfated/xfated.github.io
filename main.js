@@ -69,8 +69,8 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    //warmup
-    await predicting();
+    document.getElementById('prediction-output').innerText = `
+        Take a picture with the button above!`;
 }
 
 
@@ -162,7 +162,7 @@ function predicting(num_predictions){
         Description: ${category_description}`;
     
     /* update chart */
-    predictions.data = pred.map((x)=> {return x*100});
+    predictions.datasets[0].data = pred.map((x)=> {return x*100});
 
     prediction_chart.update();
 }
