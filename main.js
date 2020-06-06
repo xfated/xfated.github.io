@@ -4,6 +4,7 @@ const reader = new FileReader();
 /* Variables */
 let model;
 let class_names = [];
+let prediction_chart;
 let predictions = {
     labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown Machine','Rowing Machine','Shoulder Press Machine','Smith Machine','Treadmill'],
     datasets:[{
@@ -38,12 +39,8 @@ let options = {
      }
 }
 Chart.platform.disableCSSInjection = true;
+
 let ctx = document.getElementById('prediction-chart');
-let prediction_chart = new Chart(ctx,{
-    type: 'radar',
-    data: predictions,
-    options: options,
-});
 
 $("#image-input").change(function(){
     readURL(this);
@@ -69,10 +66,26 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
+    //init chart
+    await initChart();
+    console.log('Chart successfully loaded');
+
     //warmup
     await predicting();
-    prediction_chart.title.remove()
 }
+
+/**
+ *  @description Initialize chart
+ */
+function initChart(){
+    prediction_chart = new Chart(ctx,{
+        type: 'radar',
+        data: predictions,
+        options: options,
+    });
+}
+
+
 
 /**
  * @description preprocess the image to size (224, 224) for our model
@@ -148,7 +161,7 @@ function readURL(input){
 /** 
  * @description wrapper function for my predictions
  */
-async function predicting(num_predictions){
+function predicting(num_predictions){
     const image = document.getElementById('captured-image');
     const pred = model.predict(preprocess(image)).dataSync();
     console.log('predicted');
@@ -166,6 +179,7 @@ async function predicting(num_predictions){
 
     prediction_chart.update();
 }
+
 
 /**
  * @description sync function to update predictions before chart render
