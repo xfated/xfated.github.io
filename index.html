@@ -4,6 +4,7 @@
 		<title>Gym Equipment Classifier</title>
 		<meta name="description" content="Gym equipment classifier" charset="UTF-8" >
 		<meta name="keywords" content="gym equipment classifier, gym equipment, gym, transfer learning">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 		
 		<!-- Tensorflow.js script -->
 		<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs/dist/tf.min.js"> </script>	
@@ -11,7 +12,7 @@
 
 		<!-- jQuery library -->
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
-		
+
 		<!-- chart.js script -->
 		<script src="chartjs/dist/Chart.js"></script>
 		<link rel="stylesheet" type="text/css" href="chartjs/dist/Chart.min.css">
@@ -39,7 +40,8 @@
 			<section class="description">
 				<p>
 					This mini project aims to help beginner gymmers identify the various machines found at the gym! <br>
-					You can take a picture with your phone's back camera using the button below and the predictions will be displayed beneath.
+					You can take a picture with your phone's back camera using the button below and the predictions will be displayed beneath. <br>
+					(Please wait until the model is loaded before submitting a picture)
 				</p>
 			</section>
 			
@@ -64,7 +66,7 @@
 			<section id="predictions">
 				<div class="block">
 					<div id="prediction-output">
-					
+						Model Loading...
 					</div>
 				</div>
 				<div class="block">
@@ -76,8 +78,8 @@
 
 			<section class="description">
 				<p>
-					<b>EQUIPMe</b> is a CNN classifier that uses transfer learning from the VGG16 model trained on imagenet dataset to regcognize different categories of gym equipment.
-					It is currently able to detect 8 different categories of gym equipment using images sourced from the web. Though the validation accuracy reached 99%,
+					<b>EQUIPMe</b> is a CNN classifier that uses transfer learning from the VGG16 model trained on imagenet dataset to recognize different categories of gym equipment.
+					It is currently able to detect 8 different categories of gym equipment trained on images sourced from the web. However, though the validation accuracy reached 99%,
 					the online images might not be representative of real-life images. 
 				</p>
 			</section>

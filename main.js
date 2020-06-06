@@ -5,7 +5,7 @@ const reader = new FileReader();
 let model;
 let class_names = [];
 let predictions = {
-    labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown Machine','Rowing Machine','Shoulder Press Machine','Smith Machine','Treadmill'],
+    labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown','Rowing Machine','Shoulder Press','Smith Machine','Treadmill'],
     datasets:[{
         label: "Probabilities",
         data: [12.5,12.5,12.5,12.5,12.5,12.5,12.5,12.5],
@@ -35,6 +35,11 @@ let options = {
            "tension":0,
            "borderWidth":1
         }
+     },
+     "layout":{
+        padding:{
+            left:20
+        }
      }
 }
 
@@ -44,16 +49,6 @@ let prediction_chart = new Chart(ctx,{
     data: predictions,
     options: options,
 });
-
-
-(async function() {
-    model = await tf.loadLayersModel('model/model.json');
-    console.log('model loaded');
-    document.getElementById('prediction-output').innerText = `
-    Take a picture with the button above!`;
-})
-
-
 
 $("#image-input").change(function(){
     readURL(this);
@@ -72,14 +67,16 @@ async function start(){
     console.log("Start function");
     
     //load model
-    //model = await tf.loadLayersModel('model/model.json');
-    //console.log('Successfully loaded model');
+    model = await tf.loadLayersModel('model/model.json');
+    console.log('Successfully loaded model');
 
     //load dict
     await loadDict();
     console.log('Successfully loaded class names');
 
-
+    document.getElementById('prediction-output').innerText = `
+        Model Loaded.
+        Take a picture with the button above!`;
 }
 
 
