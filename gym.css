@@ -65,11 +65,12 @@ body{
 }
 
 #predictions{
-    height:300px;
+    height:400px;
 }
 
 .block #prediction-chart{
-    text-align:center;
+    margin-bottom:100px;
+    box-sizing:border-box;
 }
 
 .main-footer{

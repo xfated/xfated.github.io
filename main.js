@@ -4,23 +4,45 @@ const reader = new FileReader();
 /* Variables */
 let model;
 let class_names = [];
-let predictions = [];
-
-let prediction_chart = new CanvasJS.Chart("prediction-chart",{
-    title:{
-        text:"Top 3 predictions"
-    },
-    legend: {
-        maxWidth: 350,
-        itemWidth: 120
-    },
-    data: [{
-        type:"pie",
-        backgroundColor:'',
-        showInLegend: true,
-        legendText:"{indexLabel}",
-        dataPoints: predictions
+let predictions = {
+    labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown Machine','Rowing Machine','Shoulder Press Machine','Smith Machine','Treadmill'],
+    datasets:[{
+        label: "Probabilities",
+        data: [12.5,12.5,12.5,12.5,12.5,12.5,12.5,12.5],
+        fill: true,
+        backgroundColor: "rgba(255, 99, 132, 0.2)",
+        borderColor: "rgb(54, 162, 235)",
+        pointBackgroundColor: "rgb(54, 162, 235)",
+        pointBorderColor: "#fff",
+        radius:1
     }]
+}
+let options = {
+    "scale":{
+        ticks:{
+            beginAtZero:true,
+            min: 0,
+            max: 100,
+            stepSize: 20,
+            display: false
+        },
+        pointLabels:{
+            fontSize:10
+        },
+    },
+    "elements":{
+        "line":{
+           "tension":0,
+           "borderWidth":1
+        }
+     }
+}
+Chart.platform.disableCSSInjection = true;
+let ctx = document.getElementById('prediction-chart');
+let prediction_chart = new Chart(ctx,{
+    type: 'radar',
+    data: predictions,
+    options: options,
 });
 
 $("#image-input").change(function(){
@@ -140,15 +162,15 @@ async function predicting(num_predictions){
         Description: ${category_description}`;
     
     /* update chart */
-    predictions = await updateChart(pred, prediction_index, num_predictions);
+    predictions.data = pred.map((x)=> {return x*100});
 
-    prediction_chart.render();
+    prediction_chart.update();
 }
 
 /**
  * @description sync function to update predictions before chart render
  */
-function updateChart(preds, prediction_index, num_predictions){
+/*function updateChart(preds, prediction_index, num_predictions){
     let results = []
 
     for(let i = 0; i < num_predictions; i ++){
@@ -159,7 +181,7 @@ function updateChart(preds, prediction_index, num_predictions){
     }
 
     return results;
-}
+}*/
 
 
 /**
