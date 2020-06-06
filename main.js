@@ -4,7 +4,6 @@ const reader = new FileReader();
 /* Variables */
 let model;
 let class_names = [];
-let prediction_chart;
 let predictions = {
     labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown Machine','Rowing Machine','Shoulder Press Machine','Smith Machine','Treadmill'],
     datasets:[{
@@ -40,7 +39,7 @@ let options = {
 }
 
 let ctx = document.getElementById('prediction-chart');
-prediction_chart = new Chart(ctx,{
+let prediction_chart = new Chart(ctx,{
     type: 'radar',
     data: predictions,
     options: options,
