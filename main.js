@@ -27,7 +27,7 @@ let options = {
             display: false
         },
         pointLabels:{
-            fontSize:12
+            fontSize:11
         },
     },
     "elements":{
@@ -38,7 +38,7 @@ let options = {
      },
      "layout":{
         padding:{
-            left:30
+            left:20
         }
      }
 }
