@@ -74,9 +74,14 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
+<<<<<<< HEAD
     document.getElementById('prediction-output').innerText = `
         Model Loaded.
         Take a picture with the button above!`;
+=======
+    //warmup
+    await predicting();
+>>>>>>> parent of 0d19b62... changed data update
 }
 
 
@@ -168,7 +173,7 @@ function predicting(num_predictions){
         Description: ${category_description}`;
     
     /* update chart */
-    predictions.datasets[0].data = pred.map((x)=> {return x*100});
+    predictions.data = pred.map((x)=> {return x*100});
 
     prediction_chart.update();
 }
