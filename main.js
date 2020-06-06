@@ -5,7 +5,7 @@ const reader = new FileReader();
 let model;
 let class_names = [];
 let predictions = {
-    labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown Machine','Rowing Machine','Shoulder Press Machine','Smith Machine','Treadmill'],
+    labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown','Rowing Machine','Shoulder Press','Smith Machine','Treadmill'],
     datasets:[{
         label: "Probabilities",
         data: [12.5,12.5,12.5,12.5,12.5,12.5,12.5,12.5],
