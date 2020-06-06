@@ -45,6 +45,16 @@ let prediction_chart = new Chart(ctx,{
     options: options,
 });
 
+
+(async function() {
+    model = await tf.loadLayersModel('model/model.json');
+    console.log('model loaded');
+    document.getElementById('prediction-output').innerText = `
+    Take a picture with the button above!`;
+})
+
+
+
 $("#image-input").change(function(){
     readURL(this);
 });
@@ -62,15 +72,14 @@ async function start(){
     console.log("Start function");
     
     //load model
-    model = await tf.loadLayersModel('model/model.json');
-    console.log('Successfully loaded model');
+    //model = await tf.loadLayersModel('model/model.json');
+    //console.log('Successfully loaded model');
 
     //load dict
     await loadDict();
     console.log('Successfully loaded class names');
 
-    document.getElementById('prediction-output').innerText = `
-        Take a picture with the button above!`;
+
 }
 
 
