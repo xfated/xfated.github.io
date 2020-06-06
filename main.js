@@ -70,6 +70,7 @@ async function start(){
     console.log('Successfully loaded class names');
 
     document.getElementById('prediction-output').innerText = `
+        Model Loaded.
         Take a picture with the button above!`;
 }
 
