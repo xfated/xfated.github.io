@@ -67,7 +67,7 @@ async function start(){
     console.log("Start function");
     
     //load model
-    model = await tf.loadLayersModel('model/model_mobilenet.json');
+    model = await tf.loadLayersModel('model_mobilenet/model.json');
     console.log('Successfully loaded model');
 
     //load dict
