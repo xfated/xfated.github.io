@@ -67,7 +67,7 @@ async function start(){
     console.log("Start function");
     
     //load model
-    model = await tf.loadLayersModel('model/model.json');
+    model = await tf.loadLayersModel('model/model_mobilenet.json');
     console.log('Successfully loaded model');
 
     //load dict
@@ -123,7 +123,7 @@ function findMaxIndices(prediction_array, count){
  * @description load dictionary with class names
  */
 async function loadDict(){
-    let loc = 'model/class_names.txt';
+    let loc = 'class_names.txt';
 
     await $.ajax({
         url: loc,
