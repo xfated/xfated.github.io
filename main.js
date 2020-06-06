@@ -40,6 +40,11 @@ let options = {
 }
 
 let ctx = document.getElementById('prediction-chart');
+prediction_chart = new Chart(ctx,{
+    type: 'radar',
+    data: predictions,
+    options: options,
+});
 
 $("#image-input").change(function(){
     readURL(this);
@@ -65,25 +70,9 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    //init chart
-    await initChart();
-    console.log('Chart successfully loaded');
-
     //warmup
     await predicting();
 }
-
-/**
- *  @description Initialize chart
- */
-function initChart(){
-    prediction_chart = new Chart(ctx,{
-        type: 'radar',
-        data: predictions,
-        options: options,
-    });
-}
-
 
 
 /**
