@@ -27,13 +27,18 @@ let options = {
             display: false
         },
         pointLabels:{
-            fontSize:10
+            fontSize:12
         },
     },
     "elements":{
         "line":{
            "tension":0,
            "borderWidth":1
+        }
+     },
+     "layout":{
+        padding:{
+            left:30
         }
      }
 }
