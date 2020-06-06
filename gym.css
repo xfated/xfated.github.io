@@ -72,6 +72,8 @@ body{
     margin-bottom:100px;
     max-height:400px;
     max-width:400px;
+    min-height:300px;
+    min-width:300px;
     margin:0 auto;
 }
 
