@@ -5,7 +5,7 @@ const reader = new FileReader();
 let model;
 let class_names = [];
 let predictions = {
-    labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown','Rowing Machine','Shoulder Press','Smith Machine','Treadmill'],
+    labels: ['Bench Press','Stationary Exercise Bike','Dumbbells','Lat Pulldown Machine','Rowing Machine','Shoulder Press Machine','Smith Machine','Treadmill'],
     datasets:[{
         label: "Probabilities",
         data: [12.5,12.5,12.5,12.5,12.5,12.5,12.5,12.5],
@@ -34,11 +34,6 @@ let options = {
         "line":{
            "tension":0,
            "borderWidth":1
-        }
-     },
-     "layout":{
-        padding:{
-            left:20
         }
      }
 }
@@ -74,8 +69,8 @@ async function start(){
     await loadDict();
     console.log('Successfully loaded class names');
 
-    //warmup
-    await predicting();
+    document.getElementById('prediction-output').innerText = `
+        Take a picture with the button above!`;
 }
 
 
@@ -167,7 +162,7 @@ function predicting(num_predictions){
         Description: ${category_description}`;
     
     /* update chart */
-    predictions.data = pred.map((x)=> {return x*100});
+    predictions.datasets[0].data = pred.map((x)=> {return x*100});
 
     prediction_chart.update();
 }
