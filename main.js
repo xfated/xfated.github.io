@@ -38,7 +38,6 @@ let options = {
         }
      }
 }
-Chart.platform.disableCSSInjection = true;
 
 let ctx = document.getElementById('prediction-chart');
 
