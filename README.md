@@ -8,4 +8,4 @@ The occasional motivation to try out new machines might surface, only to be quic
 If only there was an easier way to make sense of these complicated machinery and learn how to use them...
 
 ## Description
-This project explores the use of transfer learning to create a classifer for images of gym equipment and deploying it on a web page.
+This project explores the use of transfer learning to create a classifier for images of gym equipment and deploying it on a web page.
