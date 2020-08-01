@@ -1,0 +1,46 @@
+/* Main header */
+#main-header{
+    text-align: left;
+    background-color:lightgrey;
+    color:rgb(43, 44, 44);
+    padding:10px;
+}
+#main-header h1{
+    margin-left:5%;
+    font: normal 40px "Palatino Linotype", Arial, Helvetica;
+    margin-top:2px;
+    margin-bottom:2px;
+}
+#main-header h2{
+    margin-left:5%;
+    font: normal 20px "Palatino Linotype", Arial, Helvetica;
+    margin-top:2px;
+    margin-bottom:2px;
+}
+.header-link{
+    text-decoration:none;
+}
+
+hr.solid{
+    border-top: 3px solid #bbb
+}
+
+/* Blocks */
+.category{
+    width: 90%;
+    margin: auto;
+}
+.category h1{
+    text-align: left;
+    font: normal 25px Impact, sans-serif;
+    margin-bottom:0px;
+}
+.project h2{
+    text-align:left;
+    font: normal 20px "Lucida Console", Arial, Helvetica;
+    margin-top:2px;
+}
+
+.project{
+    margin-left:2%;
+}
