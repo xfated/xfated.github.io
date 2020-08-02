@@ -25,7 +25,20 @@ hr.solid{
     border-top: 3px solid #bbb
 }
 
-/* Blocks */
+.main-footer{
+    background: #333;
+    color:#fff;
+    text-align:right;
+    font-size:12px;
+    margin-top:100px;
+    padding: 10px;
+}
+
+.clr{
+    clear:both;
+}
+
+/* Category / project Blocks */
 .category{
     width: 90%;
     margin: auto;
@@ -37,10 +50,38 @@ hr.solid{
 }
 .project h2{
     text-align:left;
-    font: normal 20px "Lucida Console", Arial, Helvetica;
-    margin-top:2px;
+    font: bold 20px "Lucida Console", Arial, Helvetica;
+    margin-top:10px;
+}
+.project{
+    margin-left:15px;
 }
 
-.project{
-    margin-left:2%;
+
+/* Description */
+.description .block-left{
+    float: left;
+    width: 55%;
+    box-sizing: border-box;
+    position: relative;
+    min-width: 600px;
+    min-height: 300px;
 }
+.description .block-right{
+    text-align:center;
+    float: left;
+    width: 45%;
+    box-sizing: border-box;
+    position: relative;
+    min-width:400px;
+    min-height: 300px;
+}
+
+.image{
+    display: inline-block;
+    max-width:100%;
+    max-height: 300px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
