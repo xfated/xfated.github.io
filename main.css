@@ -22,11 +22,12 @@
 }
 
 hr.solid{
-    border-top: 3px solid #bbb
+    border-top: 3px solid #bbb;
 }
 
 hr.dashed{
-    border-top: 1px dashed #bbb
+    border-top: 1px dashed #bbb;
+    min-width:60%;
 }
 
 .main-footer{
