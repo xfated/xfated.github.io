@@ -1,0 +1,37 @@
+/* Main header */
+#main-header{
+    text-align: left;
+    background-color:lightgrey;
+    color:rgb(43, 44, 44);
+    padding:10px;
+}
+.header-link{
+    text-decoration:none;
+}
+
+hr.solid{
+    border-top: 3px solid #bbb;
+}
+
+.clr{
+    clear:both;
+}
+
+.segment{
+    width: 90%;
+    margin: auto;
+}
+.segment h1{
+    text-align: left;
+    font: normal 25px Impact, sans-serif;
+    margin-bottom:0px;
+}
+
+.main-footer{
+    background: #333;
+    color:#fff;
+    text-align:right;
+    font-size:12px;
+    margin-top:100px;
+    padding: 10px;
+}
