@@ -27,6 +27,7 @@ hr.solid{
     text-align: left;
     font: normal 1.8em Impact, sans-serif;
     margin-bottom:0px;
+    background-color: rgb(223, 243, 255);
 }
 
 .segment .points{
@@ -46,6 +47,7 @@ hr.solid{
     font-size: 2em px;
     font-family: Arial;
     margin-bottom:0px;
+    background-color: #fff;
 }
 
 table thead th{
@@ -66,7 +68,7 @@ table tbody tr{
 }
 
 mark{
-    background-color: lightblue;
+    background-color: rgb(151, 248, 172);
     color:black;
 }
 
