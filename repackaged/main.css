@@ -61,10 +61,24 @@ table thead th{
     width:33%;
     font: bold 25px arial !important;
 }
+
 table{
     width:80%;
     margin-left:auto;
     margin-right:auto;
+}
+
+#creativematrix{
+    width:100%;
+}
+
+#creativematrix thead th{
+    font: bold 19px arial !important;
+    border-bottom: 1px solid black;
+    width:25%;
+}
+.enablers{ 
+    width:10% !important;
 }
 
 table tbody tr{
